@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: spring_hill_db
+      POSTGRES_USER: yourusername
+      POSTGRES_PASSWORD: yourpassword
+    ports:
+      - "5432:5432"
+    networks:
+      - springhill-network
+
+  backend:
+    build: ./backend
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/spring_hill_db
+      SPRING_DATASOURCE_USERNAME: yourusername
+      SPRING_DATASOURCE_PASSWORD: yourpassword
+    networks:
+      - springhill-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - springhill-network
+
+networks:
+  springhill-network:
