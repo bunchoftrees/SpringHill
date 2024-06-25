@@ -12,10 +12,18 @@ SpringHill is a full-stack web application that combines the power of a Spring B
 - **Tailwind CSS**: Ensures a beautiful and consistent design with utility-first CSS framework.
 - **TypeScript Support**: Enhances code quality and developer experience with type safety and modern JavaScript features.
 
+### Services
+- **User Service**
+- **Project Management**
+- **Orders**
+- **Notifications**
+- **Meeting Scheduling**
+- **Billing**
+
 ### Getting Started
 1. **Clone the Repository**:
    ```sh
-   git clone https://github.com/yourusername/SpringHill.git
+   git clone https://github.com/bunchoftrees/SpringHill.git
    cd SpringHill
 2. **Set Up Environment**:
    - Docker and Docker Compose should be installed on your machine.
