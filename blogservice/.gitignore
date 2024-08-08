@@ -61,11 +61,6 @@ yarn-error.log*
 # Optional npm cache directory
 .npm
 
-# Docker #
-**/Dockerfile
-**/docker-compose.yml
-.docker/
-
 # Temporary files #
 *.tmp
 *.swp
@@ -88,7 +83,7 @@ Thumbs.db
 *.backup
 
 # Remove sensitive data #
-**/application.properties
+application.properties
 **/application.yml
 
 # Help files
