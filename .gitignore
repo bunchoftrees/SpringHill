@@ -1,10 +1,18 @@
-HELP.md
+# Ignore target directories
 target/
-!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+# Ignore IntelliJ IDEA files
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Ignore VS Code files
+.vscode/
+
+# Ignore Eclipse/STS files
 .apt_generated
 .classpath
 .factorypath
@@ -13,25 +21,24 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
+# Ignore NetBeans files
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# Ignore build directories
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
-.vscode/
-/node_modules
+# Ignore node_modules
+node_modules/
 
-### Development ###
+# Ignore environment files
 .env
+
+# Ignore Expo/React Native specific files
+/frontend/.expo/
+/frontend/.expo-shared/
