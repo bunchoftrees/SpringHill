@@ -5,6 +5,8 @@ interface BlogPost {
   id: number;
   title: string;
   content: string;
+  createdTime: string;
+  updatedTime: string;
 }
 
 export default function Posts() {
@@ -13,16 +15,31 @@ export default function Posts() {
   useEffect(() => {
     fetch('http://127.0.0.1:8080/api/posts')
       .then((response) => response.json())
-      .then((data) => setPosts(data))
+      .then((data) => {
+        const sortedData = data.sort(
+          (a: BlogPost, b: BlogPost) => b.id - a.id
+        );
+        setPosts(sortedData);
+      })
       .catch((error) => console.error(error));
   }, []);
+   
 
-  const renderItem = ({ item }: { item: BlogPost }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{item.title}</Text>
-      <Text>{item.content}</Text>
-    </View>
-  );
+  const renderItem = ({ item }: { item: BlogPost }) => {
+    const createdDate = new Date(item.createdTime + 'Z').toLocaleString();
+    const updatedDate = item.updatedTime ? new Date(item.updatedTime + 'Z').toLocaleString() : null;
+    const displayDate = updatedDate || createdDate;
+  
+    return (
+      <View style={styles.item}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text>{item.content}</Text>
+        <Text>{displayDate}</Text>
+      </View>
+    );
+  };
+  
+  
 
   return (
     <FlatList
