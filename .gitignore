@@ -42,3 +42,6 @@ node_modules/
 # Ignore Expo/React Native specific files
 /frontend/.expo/
 /frontend/.expo-shared/
+
+# Ignore Desktop Services
+.DS_Store
